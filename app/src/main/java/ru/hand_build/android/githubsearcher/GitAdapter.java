@@ -1,6 +1,5 @@
 package ru.hand_build.android.githubsearcher;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,11 +7,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by vladimir on 15.06.15.
  */
 public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
-    private String[] mDataset;
+    private ArrayList<Repo> mDataset;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -20,30 +21,30 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
 
-        View v;
-        TextView name;
-        Button like;
-        TextView description;
-        Button watchers;
-        Button forks;
-        Button owner;
-        TextView website;
+        public View v;
+        public TextView name;
+        public Button like;
+        public TextView description;
+        public Button watchers;
+        public Button forks;
+        public Button owner;
+        public TextView website;
 
         public ViewHolder(View v) {
             super(v);
             this.v = v;
-            name = (TextView) name.findViewById(R.id.name);
-            like = (Button) like.findViewById(R.id.like);
-            description = (TextView) description.findViewById(R.id.description);
-            watchers = (Button) watchers.findViewById(R.id.watchers);
-            forks = (Button) forks.findViewById(R.id.forks);
-            owner = (Button) owner.findViewById(R.id.owner);
-            website = (TextView) website.findViewById(R.id.website);
+            name = (TextView) v.findViewById(R.id.name);
+            like = (Button) v.findViewById(R.id.like);
+            description = (TextView) v.findViewById(R.id.description);
+            watchers = (Button) v.findViewById(R.id.watchers);
+            forks = (Button) v.findViewById(R.id.forks);
+            owner = (Button) v.findViewById(R.id.owner);
+            website = (TextView) v.findViewById(R.id.website);
         }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public GitAdapter(String[] myDataset) {
+    public GitAdapter(ArrayList<Repo> myDataset) {
         mDataset = myDataset;
     }
 
@@ -65,14 +66,19 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.name.setText(mDataset[position]);
-        /* TODO fill view with model */
+        holder.name.setText((CharSequence) mDataset.get(position).name);
+        holder.like.setText("Like!");
+        holder.description.setText((CharSequence) mDataset.get(position).description);
+        holder.watchers.setText("Watchers: " + mDataset.get(position).watchers);
+        holder.forks.setText("Forks: " + mDataset.get(position).forks);
+        holder.owner.setText("Owner: " + mDataset.get(position).owner);
+        holder.website.setText(mDataset.get(position).website);
 
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mDataset.size();
     }
 }
