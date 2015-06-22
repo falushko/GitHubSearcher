@@ -50,7 +50,7 @@ class BackgroundDataGetter extends AsyncTask<String, Void, List<SearchRepository
         }
 
         // specify an adapter (see also next example)
-        context.mAdapter = new GitAdapter(context.myDataset);
+        context.mAdapter = new GitAdapter(context);
         context.mRecyclerView.setAdapter(context.mAdapter);
 
 

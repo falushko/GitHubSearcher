@@ -22,29 +22,16 @@ public class ListActivity extends Activity {
     private RecyclerView.LayoutManager mLayoutManager;
     public ArrayList<Repo> myDataset = new ArrayList<Repo>();
     public List<SearchRepository> rawData;
-
-
+    private static final String QUERY = "query";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
-
-        // This should be in AssynkTask
-
-
-
-        // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-
-
-
-        new BackgroundDataGetter(this).execute("yii");;
+        new BackgroundDataGetter(this).execute(getIntent().getStringExtra(QUERY));;
     }
 }

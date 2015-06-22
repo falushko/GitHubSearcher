@@ -9,34 +9,16 @@
     android:background="#169eff14">
 
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Name"
-            android:layout_weight="10"
-            android:layout_gravity="left|center_vertical"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Like"
-            android:id="@+id/like"
-            android:layout_gravity="center_vertical|right"
-            android:layout_weight="1"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Name"
+        android:layout_weight="10"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="16dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="http://yiisoftware.com"
+        android:text="Homepage"
         android:id="@+id/website"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
