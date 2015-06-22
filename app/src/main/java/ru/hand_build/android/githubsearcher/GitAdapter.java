@@ -85,6 +85,8 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 String url = mDataset.get(position).website;
+
+                //TODO chek if any activity to handle intent
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 context.startActivity(i);
