@@ -78,9 +78,10 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
         //shit happens here, i'll fix it later
 
         if(mDataset.get(position).website == null){
-            holder.website.setVisibility(View.INVISIBLE);
             return;
         }
+
+        holder.website.setText("Homepage");
         holder.website.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
