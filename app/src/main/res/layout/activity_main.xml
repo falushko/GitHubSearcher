@@ -22,5 +22,6 @@
         android:layout_height="wrap_content"
         android:text="Search!"
         android:id="@+id/searchButton"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:background="@color/accentColor"/>
 </LinearLayout>

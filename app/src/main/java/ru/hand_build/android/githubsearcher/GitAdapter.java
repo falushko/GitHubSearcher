@@ -1,5 +1,6 @@
 package ru.hand_build.android.githubsearcher;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
@@ -65,6 +66,7 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
     }
 
     // Replace the contents of a view (invoked by the layout manager)
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
@@ -75,13 +77,14 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
         holder.forks.setText("Forks: " + mDataset.get(position).forks);
         holder.owner.setText("Owner: " + mDataset.get(position).owner);
 
-        //shit happens here, i'll fix it later
-
         if(mDataset.get(position).website == null){
             return;
         }
 
         holder.website.setText("Homepage");
+
+        //TODO make links blue
+        holder.website.setTextColor(R.color.linkColor);
         holder.website.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,3 +105,7 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
         return mDataset.size();
     }
 }
+
+//TODO make "back" button to parent activity
+//TODO make icon and image in the centre of 1st activity
+//TODO make "search" button clickable

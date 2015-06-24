@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    android:background="#169eff14">
+    android:background="@color/primaryLight">
 
 
     <TextView
@@ -15,17 +15,23 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Name"
+        android:textColor="@color/primaryText"
         android:layout_weight="10"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:capitalize="words"
+        android:textSize="25sp"
+        android:textIsSelectable="false" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/description"
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"
+        android:textSize="15sp"
+        android:textColor="@color/secondaryText" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -33,34 +39,40 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
-            android:text="Watchers: 354"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:text="Owner: usjsaduasya"
+            android:id="@+id/owner"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="16dp"
+            android:background="@color/accentColor"
+            android:layout_marginTop="16dp"
+            android:textSize="10sp"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp" />
+
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:text="Watchers: 13354"
             android:id="@+id/watchers"
             android:layout_gravity="left"
             android:layout_weight="1"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="1dp" />
+            android:layout_marginRight="16dp"
+            android:background="@color/accentColor"
+            android:textSize="10sp" />
 
         <Button
             android:layout_width="10dp"
-            android:layout_height="wrap_content"
-            android:text="Forks: 296"
+            android:layout_height="20dp"
+            android:text="Forks: 14296"
             android:id="@+id/forks"
             android:layout_gravity="right"
             android:layout_weight="1"
             android:layout_marginRight="16dp"
-            android:layout_marginLeft="1dp" />
+            android:background="@color/accentColor"
+            android:textSize="10sp" />
     </LinearLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Owner: uasya"
-        android:id="@+id/owner"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -69,7 +81,7 @@
         android:text="Have no homepage"
         android:id="@+id/website"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp" />
 
 </LinearLayout>
