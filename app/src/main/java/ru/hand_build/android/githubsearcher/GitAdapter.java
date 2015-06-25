@@ -1,7 +1,10 @@
 package ru.hand_build.android.githubsearcher;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,8 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by vladimir on 15.06.15.
@@ -77,29 +82,30 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
         holder.forks.setText("Forks: " + mDataset.get(position).forks);
         holder.owner.setText("Owner: " + mDataset.get(position).owner);
 
-        if(mDataset.get(position).website == null){
-            return;
-        }
-
         holder.website.setText("Homepage");
-
-        //TODO make links blue
-        holder.website.setTextColor(R.color.linkColor);
+        holder.website.setTextColor(Color.parseColor("#007bff"));
         holder.website.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String url = mDataset.get(position).website;
 
-                //TODO chek if any activity to handle intent
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
-                context.startActivity(i);
+
+                //for some reason sometimes exception occures here
+                try {
+                    i.setData(Uri.parse(url));
+                    context.startActivity(i);
+                } catch (Exception e) {
+                    Toast toast = Toast.makeText(context, "Have no homepage", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
+
         });
 
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
+                // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return mDataset.size();
