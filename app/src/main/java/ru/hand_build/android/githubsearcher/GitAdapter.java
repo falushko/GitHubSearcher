@@ -106,6 +106,5 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
     }
 }
 
-//TODO make "back" button to parent activity
-//TODO make icon and image in the centre of 1st activity
+//TODO make image in the centre of 1st activity
 //TODO make "search" button clickable

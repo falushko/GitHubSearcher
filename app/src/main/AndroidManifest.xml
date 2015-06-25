@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
+
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,8 +21,11 @@
         </activity>
         <activity
             android:name=".ListActivity"
-            android:label="@string/app_name" >
-
+            android:label="@string/app_name"
+            android:parentActivityName="ru.hand_build.android.githubsearcher.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ru.hand_build.android.githubsearcher.MainActivity" />
         </activity>
     </application>
 
