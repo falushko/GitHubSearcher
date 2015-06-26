@@ -8,6 +8,14 @@
     android:orientation="vertical"
     android:gravity="bottom">
 
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal"
+        android:background="@mipmap/github_image"
+        android:layout_marginBottom="30dp"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,5 +31,5 @@
         android:text="Search!"
         android:id="@+id/searchButton"
         android:layout_marginBottom="16dp"
-        android:background="@color/accentColor"/>
+        android:background="@drawable/custom_button"/>
 </LinearLayout>
