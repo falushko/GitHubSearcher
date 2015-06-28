@@ -9,8 +9,8 @@
     android:gravity="bottom">
 
     <ImageView
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
         android:background="@mipmap/github_image"
