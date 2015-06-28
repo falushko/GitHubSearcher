@@ -3,6 +3,9 @@ package ru.hand_build.android.githubsearcher;
 /**
  * Created by vladimir on 16.06.15.
  */
+
+//model class
+
 public class Repo {
     public String name;
     public String description;

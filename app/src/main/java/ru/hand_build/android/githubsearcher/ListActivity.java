@@ -1,21 +1,12 @@
 package ru.hand_build.android.githubsearcher;
 
-import android.app.Activity;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-
-import org.eclipse.egit.github.core.Repository;
 import org.eclipse.egit.github.core.SearchRepository;
-import org.eclipse.egit.github.core.service.RepositoryService;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
@@ -39,6 +30,6 @@ public class ListActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        new BackgroundDataGetter(this).execute(getIntent().getStringExtra(QUERY));;
+        new BackgroundDataGetter(this).execute(getIntent().getStringExtra(QUERY));
     }
 }

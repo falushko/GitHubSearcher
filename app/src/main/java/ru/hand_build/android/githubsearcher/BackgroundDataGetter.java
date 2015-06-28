@@ -1,12 +1,8 @@
 package ru.hand_build.android.githubsearcher;
 
-import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
-
 import org.eclipse.egit.github.core.SearchRepository;
 import org.eclipse.egit.github.core.service.RepositoryService;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -39,7 +35,6 @@ class BackgroundDataGetter extends AsyncTask<String, Void, List<SearchRepository
     protected void onPostExecute(List<SearchRepository> result) {
         context.rawData = result;
 
-
         for (int i = 0; i < context.rawData.size(); i++){
             context.myDataset.add(i, new Repo(context.rawData.get(i).getName(),
                     context.rawData.get(i).getDescription(),
@@ -49,10 +44,8 @@ class BackgroundDataGetter extends AsyncTask<String, Void, List<SearchRepository
                     context.rawData.get(i).getHomepage()));
         }
 
-        // specify an adapter (see also next example)
+        // specify an adapter
         context.mAdapter = new GitAdapter(context);
         context.mRecyclerView.setAdapter(context.mAdapter);
-
-
     }
 }

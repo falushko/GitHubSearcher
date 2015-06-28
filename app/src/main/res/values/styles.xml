@@ -14,6 +14,7 @@
     <color name="primaryLight">#C8E6C9</color>
     <color name="textIcons">#FFFFFF</color>
     <color name="accentColor">#CDDC39</color>
+    <color name="accentColorDark">#B1BC31</color>
     <color name="primaryText">#212121</color>
     <color name="secondaryText">#727272</color>
     <color name="dividerColor">#B6B6B6</color>

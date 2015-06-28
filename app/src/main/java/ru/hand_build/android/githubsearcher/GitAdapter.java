@@ -1,9 +1,7 @@
 package ru.hand_build.android.githubsearcher;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
@@ -13,14 +11,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by vladimir on 15.06.15.
  */
 public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
+
     private ArrayList<Repo> mDataset;
     private ListActivity context;
 
@@ -32,7 +29,6 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
 
         public View v;
         public TextView name;
-        public Button like;
         public TextView description;
         public Button watchers;
         public Button forks;
@@ -59,25 +55,22 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
 
     // Create new views (invoked by the layout manager)
     @Override
-    public GitAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+    public GitAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_view, parent, false);
-        // set the view's size, margins, paddings and layout parameters
 
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.name.setText((CharSequence) mDataset.get(position).name);
-        holder.description.setText((CharSequence) mDataset.get(position).description);
+        holder.name.setText(mDataset.get(position).name);
+        holder.description.setText(mDataset.get(position).description);
         holder.watchers.setText("Watchers: " + mDataset.get(position).watchers);
         holder.forks.setText("Forks: " + mDataset.get(position).forks);
         holder.owner.setText("Owner: " + mDataset.get(position).owner);
@@ -88,7 +81,6 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 String url = mDataset.get(position).website;
-
                 Intent i = new Intent(Intent.ACTION_VIEW);
 
                 //for some reason sometimes exception occures here
@@ -105,12 +97,9 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
 
     }
 
-                // Return the size of your dataset (invoked by the layout manager)
+    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return mDataset.size();
     }
 }
-
-//TODO make image in the centre of 1st activity
-//TODO make "search" button clickable
