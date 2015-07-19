@@ -45,22 +45,16 @@ public class ListFragment extends Fragment{
 
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         Bundle args = getArguments();
-        String query = args.getString(QUERY);
-        toolbar.setTitle(query);
 
-        new DataGetterTask(this).execute(query);
+        myDataset = (ArrayList<Repo>) args.getSerializable(QUERY);
+
+       // toolbar.setTitle(query);
+
+        mAdapter = new GitAdapter(this);
+        mRecyclerView.setAdapter(mAdapter);
 
 
         return v;
     }
-
-    // method called by DataGetterTask to perform UI thread operations
-    public void getData(){
-
-        // specify an adapter
-        mAdapter = new GitAdapter(this);
-        mRecyclerView.setAdapter(mAdapter);
-    }
-
 
 }

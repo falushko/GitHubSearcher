@@ -11,13 +11,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
+import ru.hand_build.android.githubsearcher.DataGetterTask;
 import ru.hand_build.android.githubsearcher.R;
+import ru.hand_build.android.githubsearcher.Repo;
 
 
 public class SearcherFragment extends Fragment {
 
     private Button mSearchButton;
     private EditText mEditText;
+    public ArrayList<Repo> myDataset = new ArrayList<Repo>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,16 +47,9 @@ public class SearcherFragment extends Fragment {
                 String message = mEditText.getText().toString();
                 if (message.isEmpty()) return;
 
-                Bundle args = new Bundle();
-                args.putString(ListFragment.QUERY, message);
-                ListFragment listFragment = new ListFragment();
-                listFragment.setArguments(args);
+                new DataGetterTask(SearcherFragment.this, message).execute(message);
 
-                getFragmentManager()
-                        .beginTransaction()
-                        .addToBackStack(null)
-                        .replace(R.id.fragment_container, listFragment)
-                        .commit();
+
             }
         });
 

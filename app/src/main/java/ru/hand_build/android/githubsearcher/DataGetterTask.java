@@ -2,12 +2,15 @@ package ru.hand_build.android.githubsearcher;
 
 import android.app.Fragment;
 import android.os.AsyncTask;
+import android.os.Bundle;
+
 import org.eclipse.egit.github.core.SearchRepository;
 import org.eclipse.egit.github.core.service.RepositoryService;
 import java.io.IOException;
 import java.util.List;
 
 import ru.hand_build.android.githubsearcher.fragments.ListFragment;
+import ru.hand_build.android.githubsearcher.fragments.SearcherFragment;
 
 /**
  * Created by vladimir on 22.06.15.
@@ -15,10 +18,12 @@ import ru.hand_build.android.githubsearcher.fragments.ListFragment;
 public class DataGetterTask extends AsyncTask<String, Void, List<SearchRepository>> {
 
     List<SearchRepository> repos;
-    ListFragment context;
+    SearcherFragment context;
+    String query;
 
-    public DataGetterTask(ListFragment context){
+    public DataGetterTask(SearcherFragment context, String query){
         super();
+        this.query = query;
         this.context = context;
 
     }
@@ -27,7 +32,7 @@ public class DataGetterTask extends AsyncTask<String, Void, List<SearchRepositor
         RepositoryService service = new RepositoryService();
 
         try {
-            repos = service.searchRepositories(urls[0]);
+            repos = service.searchRepositories(query);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,6 +52,17 @@ public class DataGetterTask extends AsyncTask<String, Void, List<SearchRepositor
                     result.get(i).getHomepage()));
         }
 
-        context.getData();
+        Bundle args = new Bundle();
+        args.putSerializable(ListFragment.QUERY, context.myDataset);
+        ListFragment listFragment = new ListFragment();
+        listFragment.setArguments(args);
+
+        context.getFragmentManager()
+                .beginTransaction()
+                .addToBackStack(null)
+                .setCustomAnimations(R.animator.enter_anim, R.animator.exit_anim, R.animator.enter_anim, R.animator.exit_anim)
+                .replace(R.id.fragment_container, listFragment)
+                .commit();
+
     }
 }
