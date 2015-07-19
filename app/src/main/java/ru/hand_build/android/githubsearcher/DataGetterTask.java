@@ -1,22 +1,26 @@
 package ru.hand_build.android.githubsearcher;
 
+import android.app.Fragment;
 import android.os.AsyncTask;
 import org.eclipse.egit.github.core.SearchRepository;
 import org.eclipse.egit.github.core.service.RepositoryService;
 import java.io.IOException;
 import java.util.List;
 
+import ru.hand_build.android.githubsearcher.fragments.ListFragment;
+
 /**
  * Created by vladimir on 22.06.15.
  */
-class BackgroundDataGetter extends AsyncTask<String, Void, List<SearchRepository>> {
+public class DataGetterTask extends AsyncTask<String, Void, List<SearchRepository>> {
 
     List<SearchRepository> repos;
-    ListActivity context;
+    ListFragment context;
 
-    public BackgroundDataGetter(ListActivity context){
+    public DataGetterTask(ListFragment context){
         super();
         this.context = context;
+
     }
 
     protected List<SearchRepository> doInBackground(String... urls) {
@@ -33,19 +37,16 @@ class BackgroundDataGetter extends AsyncTask<String, Void, List<SearchRepository
     /** The system calls this to perform work in the UI thread and delivers
      * the result from doInBackground() */
     protected void onPostExecute(List<SearchRepository> result) {
-        context.rawData = result;
 
-        for (int i = 0; i < context.rawData.size(); i++){
-            context.myDataset.add(i, new Repo(context.rawData.get(i).getName(),
-                    context.rawData.get(i).getDescription(),
-                    context.rawData.get(i).getWatchers(),
-                    context.rawData.get(i).getForks(),
-                    context.rawData.get(i).getOwner(),
-                    context.rawData.get(i).getHomepage()));
+        for (int i = 0; i < result.size(); i++){
+            context.myDataset.add(i, new Repo(result.get(i).getName(),
+                    result.get(i).getDescription(),
+                    result.get(i).getWatchers(),
+                    result.get(i).getForks(),
+                    result.get(i).getOwner(),
+                    result.get(i).getHomepage()));
         }
 
-        // specify an adapter
-        context.mAdapter = new GitAdapter(context);
-        context.mRecyclerView.setAdapter(context.mAdapter);
+        context.getData();
     }
 }

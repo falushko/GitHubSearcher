@@ -2,34 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    android:gravity="bottom">
+    android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="330dp"
-        android:layout_height="330dp"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal"
-        android:background="@mipmap/github_image"
-        android:layout_marginBottom="30dp"/>
-
-    <EditText
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/search_query"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:hint="enter repository name" />
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Search!"
-        android:id="@+id/searchButton"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/custom_button"/>
+    <RelativeLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
 </LinearLayout>

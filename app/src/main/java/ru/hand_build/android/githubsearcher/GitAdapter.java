@@ -13,13 +13,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 
+import ru.hand_build.android.githubsearcher.fragments.ListFragment;
+
 /**
  * Created by vladimir on 15.06.15.
  */
 public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
 
     private ArrayList<Repo> mDataset;
-    private ListActivity context;
+    private ListFragment context;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -48,7 +50,7 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public GitAdapter(ListActivity context) {
+    public GitAdapter(ListFragment context) {
         this.context = context;
         mDataset = context.myDataset;
     }
@@ -88,7 +90,7 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
                     i.setData(Uri.parse(url));
                     context.startActivity(i);
                 } catch (Exception e) {
-                    Toast toast = Toast.makeText(context, "Have no homepage", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(context.getActivity(), "Have no homepage", Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }
