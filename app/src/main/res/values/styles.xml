@@ -6,8 +6,9 @@
 
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primaryDark</item>
-        <item name="android:textColorSecondary">@color/textIcons</item>
-        <item name="android:textColorPrimary">@color/textIcons</item>
+        <item name="colorControlNormal">@color/textIcons</item>
+
+
     </style>
 
 

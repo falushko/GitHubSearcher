@@ -88,7 +88,7 @@ public class GitAdapter extends RecyclerView.Adapter<GitAdapter.ViewHolder> {
                 //for some reason sometimes exception occures here
                 try {
                     i.setData(Uri.parse(url));
-                    context.startActivity(i);
+                    context.getActivity().startActivity(i);
                 } catch (Exception e) {
                     Toast toast = Toast.makeText(context.getActivity(), "Have no homepage", Toast.LENGTH_SHORT);
                     toast.show();

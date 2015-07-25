@@ -1,12 +1,14 @@
 package ru.hand_build.android.githubsearcher;
 
+import java.io.Serializable;
+
 /**
  * Created by vladimir on 16.06.15.
  */
 
 //model class
 
-public class Repo {
+public class Repo implements Serializable{
     public String name;
     public String description;
     public int watchers;

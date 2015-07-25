@@ -60,7 +60,7 @@ public class DataGetterTask extends AsyncTask<String, Void, List<SearchRepositor
         context.getFragmentManager()
                 .beginTransaction()
                 .addToBackStack(null)
-                .setCustomAnimations(R.animator.enter_anim, R.animator.exit_anim, R.animator.enter_anim, R.animator.exit_anim)
+                .setCustomAnimations(R.animator.enter_anim, R.animator.exit_anim, R.animator.right_slide_anim_in, R.animator.right_slde_anim_out)
                 .replace(R.id.fragment_container, listFragment)
                 .commit();
 
