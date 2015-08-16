@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         //creating Searcher Fragment
         getFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragment_container, new SearcherFragment())
+                .replace(R.id.fragment_container, new SearcherFragment())
                 .commit();
 
         // Handle Toolbar
@@ -65,15 +65,19 @@ public class MainActivity extends AppCompatActivity {
                                                        if (drawerItem != null) {
                                                            if (drawerItem.getIdentifier() == 1) {
                                                                Toast.makeText(getApplicationContext(), R.string.drawer_home, Toast.LENGTH_SHORT).show();
-
+                                                               result.setSelectionByIdentifier(1, false);
                                                            } else if (drawerItem.getIdentifier() == 2) {
                                                                Toast.makeText(getApplicationContext(), R.string.drawer_searcher, Toast.LENGTH_SHORT).show();
+                                                               result.setSelectionByIdentifier(2, false);
                                                            } else if (drawerItem.getIdentifier() == 3) {
                                                                Toast.makeText(getApplicationContext(), R.string.drawer_favourites, Toast.LENGTH_SHORT).show();
+                                                               result.setSelectionByIdentifier(3, false);
                                                            } else if (drawerItem.getIdentifier() == 4) {
                                                                Toast.makeText(getApplicationContext(), R.string.drawer_settings, Toast.LENGTH_SHORT).show();
+                                                               result.setSelectionByIdentifier(4, false);
                                                            } else if (drawerItem.getIdentifier() == 5) {
                                                                Toast.makeText(getApplicationContext(), R.string.drawer_about, Toast.LENGTH_SHORT).show();
+                                                               result.setSelectionByIdentifier(5, false);
                                                            }
                                                        }
                                                        return false;
@@ -83,10 +87,10 @@ public class MainActivity extends AppCompatActivity {
                 .withSavedInstance(savedInstanceState)
                 .withShowDrawerOnFirstLaunch(true)
                 .build();
-
+                result.setSelectionByIdentifier(1, false);
                     //only set the active selection or active profile if we do not recreate the activity
                     if(savedInstanceState==null) {
-                        // set the selection to the item with the identifier 11
+                        // set the selection to the item with the identifier 1
                         result.setSelectionByIdentifier(1, false);
 
                     }

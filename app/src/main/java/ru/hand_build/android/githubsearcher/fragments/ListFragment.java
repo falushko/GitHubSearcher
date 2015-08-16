@@ -48,7 +48,6 @@ public class ListFragment extends Fragment{
 
         myDataset = (ArrayList<Repo>) args.getSerializable(QUERY);
 
-       // toolbar.setTitle(query);
 
         mAdapter = new GitAdapter(this);
         mRecyclerView.setAdapter(mAdapter);

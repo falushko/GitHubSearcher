@@ -3,14 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-
         <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorPrimaryDark">@color/primary</item>
         <item name="colorControlNormal">@color/textIcons</item>
-
-
     </style>
-
 
     <color name="primary">#4caf50</color>
     <color name="primaryDark">#388E3C</color>
@@ -22,6 +18,5 @@
     <color name="secondaryText">#727272</color>
     <color name="dividerColor">#B6B6B6</color>
     <color name="linkColor">#007bff</color>
-
 
 </resources>

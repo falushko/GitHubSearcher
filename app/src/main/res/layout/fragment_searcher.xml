@@ -39,10 +39,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/search_query"
+        android:inputType="text"
+        android:imeOptions="actionSearch"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:hint="enter repository name" />
+        android:hint="enter repository name"
+        android:autoText="false"
+        android:clickable="false" />
 
     <Button
         android:layout_width="match_parent"
